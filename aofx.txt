@@ -1,0 +1,43 @@
+#
+# GFX tweak file
+# ---------------
+#
+
+# Put file in C:\Funcom\Anarchy Online\cd_image\twk\
+# Name to something, like light.txt
+# In AO do /fxscript light #
+
+Object ScreenColor
+{
+  Unsigned    FXID:               e_ClearScreen
+  Unsigned    Use:                e_Automatic
+  Unsigned    Priority:           e_RenderPriority_First
+  Unsigned    Sorting:            BackgroundSort.ScreenColor
+  Unsigned    Color:              0x0000AAAA
+
+  StateBlob 0u:
+  {
+    Criteria:	Game.RenderEngine == e_RenderEngine_DX7
+
+    Texture:        Unsigned 0u, Unsigned 0u, String "whitemap8x8.png"
+    RenderState:    Unsigned 0u, Unsigned e_D3DRENDERSTATE_ZFUNC           , Unsigned e_D3DCMP_ALWAYS
+    RenderState:    Unsigned 0u, Unsigned e_D3DRENDERSTATE_ZWRITEENABLE    , Unsigned e_FALSE
+    RenderState:    Unsigned 0u, Unsigned e_D3DRENDERSTATE_ALPHABLENDENABLE, Unsigned e_FALSE
+    RenderState:    Unsigned 0u, Unsigned e_D3DRENDERSTATE_FOGENABLE       , Unsigned e_FALSE
+    RenderState:    Unsigned 0u, Unsigned e_D3DRENDERSTATE_LIGHTING        , Unsigned e_FALSE
+  }
+}
+
+Object SunLight
+{
+  Unsigned    FXID:                   e_EnvironmentLightObject
+  Unsigned    Use:                    e_Automatic
+
+  Vector      AmbientLightCurrent:    v( 1.00f, 1.00f, 1.00f )
+
+  Float       SpecularLightIntensity: 1.0
+  Float       LightIntensity          1.0
+  Vector      GroundLightCurrent:     v( 1.0f, 1.0f, 1.0f )
+  Vector      GroundLightColor:       1.0
+
+}
